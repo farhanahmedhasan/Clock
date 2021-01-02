@@ -25,23 +25,23 @@ class Clock{
         this.secondHand = document.querySelector('[data-second-hand]')
         this.minuteHand = document.querySelector('[data-minute-hand]')
         this.hourHand = document.querySelector('[data-hour-hand]')
-        setInterval(()=>this.setClock(), 1000)
+        setInterval(() => this.setClock(), 1000)
         this.setClock()
     }
 
     setClock() {
         const currentDate = new Date()
         const getSecond = currentDate.getSeconds() / 60
-        const getMinute = (getSecond + currentDate.getMinutes()) /60
-        const getHour = (getMinute + currentDate.getHours()) /12
+        const getMinute = (getSecond + currentDate.getMinutes()) / 60
+        const getHour = (getMinute + currentDate.getHours())/12
 
-        this.setClockHandsInRotation(this.secondHand, getSecond)
-        this.setClockHandsInRotation(this.minuteHand, getMinute)
-        this.setClockHandsInRotation(this.hourHand,getHour)
+        this.ClockHandIsRotating(this.secondHand, getSecond)
+        this.ClockHandIsRotating(this.minuteHand,getMinute)
+        this.ClockHandIsRotating(this.hourHand,getHour)
     }
 
-    setClockHandsInRotation(element, rotation) {
-        element.style.setProperty('--rotation', rotation * 360)
+    ClockHandIsRotating(element,rotation) {
+        element.style.setProperty('--rotation', rotation*360)
     }
 }
 new Clock();
